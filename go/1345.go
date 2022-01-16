@@ -14,7 +14,7 @@ func minJumps(arr []int) int {
 		return 0
 	}
 
-	indices := make(map[int][]int)
+	indices := make(map[int][]int) // values -> indices where they appear
 	for i, n := range arr {
 		if indices[n] == nil {
 			indices[n] = make([]int, 0)
@@ -23,13 +23,14 @@ func minJumps(arr []int) int {
 		indices[n] = append(indices[n], i)
 	}
 
-	q := make([]int, 0)
+	q := make([]int, 0) // fifo queue
 	seen := make([]bool, len(arr))
 	dist := make([]int, len(arr))
 
 	q = append(q, 0)
 	seen[0] = true
 
+	// Breadth-first search
 	for len(q) > 0 {
 		index := q[0]
 		value := arr[index]
@@ -59,10 +60,10 @@ func minJumps(arr []int) int {
 				seen[x] = true
 				dist[x] = newDist
 			}
-			delete(indices, value)
+			delete(indices, value) // avoid re-calculation
 		}
 
-		q = q[1:]
+		q = q[1:] // pop left of queue
 	}
 
 	return -1
