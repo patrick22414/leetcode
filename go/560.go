@@ -18,14 +18,10 @@ func main() {
 	nums = []int{1}
 	k = 1
 	fmt.Println(subarraySum(nums, k))
-
-	nums = []int{1, -1, 2, 0}
-	k = 0
-	fmt.Println(subarraySum(nums, k))
 }
 
 func subarraySum(nums []int, k int) (count int) {
-	// this is the correct solution I found online
+	// this is the correct solution I found online, paraphrased and commented by myself
 	// for brevity, I'll denote `sum of nums[0:i]` as `sum(0:i)` (not including nums[i])
 
 	// store sum(0:i), for i from 0 to len(nums); aka `prefix sum`
