@@ -20,8 +20,8 @@ func main() {
 	fmt.Println(subarraySum(nums, k))
 }
 
+// The correct solution I found online, paraphrased and commented by myself.
 func subarraySum(nums []int, k int) (count int) {
-	// this is the correct solution I found online, paraphrased and commented by myself
 	// for brevity, I'll denote `sum of nums[0:i]` as `sum(0:i)` (not including nums[i])
 
 	// store sum(0:i), for i from 0 to len(nums); aka `prefix sum`
@@ -54,9 +54,9 @@ func subarraySum(nums []int, k int) (count int) {
 	return
 }
 
+// This is my solution.
+// It works, but not very well.
 func subarraySumMine(nums []int, k int) (count int) {
-	// this is my solution
-	// it works, but not very well
 	sums := make([]int, len(nums))
 
 	// populate sums with [0, i]
